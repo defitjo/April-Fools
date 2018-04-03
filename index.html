@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>April Fools</title>
+  <link href="https://fonts.googleapis.com/css?family=Chicle|Roboto" rel="stylesheet">
+</head>
+<body>
+  <h1>Enter the Password to gain your reward!</h1>
+  <div id="rick"></div>
+
+  <style>
+    html {
+      box-sizing: border-box;
+      background: #83a4d4;
+      background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);
+      background: linear-gradient(to right, #b6fbff, #83a4d4);
+      font-family: 'Roboto', sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Chicle', cursive;
+      font-size: 40px;
+    }
+
+    #rick {
+      position: relative;
+      padding: 20px 0 0 0;
+    }
+  </style>
+
+  <script>
+    const storage = [];
+    const passWord = 'javascript';
+
+    const rickRoll = () => {
+      document.getElementById('rick').innerHTML =
+      `<iframe src="https://player.vimeo.com/video/45196609?autoplay=1" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <p>
+          <a href="https://vimeo.com/45196609">Never Gonna Give You Up</a> from
+          <a href="https://vimeo.com/user12402347">Rick Astley</a> on
+          <a href="https://vimeo.com">Vimeo</a>.
+        </p>`;
+    };
+
+    window.addEventListener('keyup', (event) => {
+      console.log(event.key);
+      storage.push(event.key);
+      storage.splice(-passWord.length - 1, storage.length - passWord.length);
+
+      if (storage.join('').includes(passWord)) {
+        console.log("You've been Rick Rolled!");
+        rickRoll();
+      }
+      console.log(storage);
+    });
+
+  </script>
+</body>
+</html>
