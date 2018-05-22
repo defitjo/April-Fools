@@ -1,5 +1,5 @@
 # April Fools
 
-Prank site using javascript.
+Prank site using a key logger function.
 
-The password is javascript, type it in on the main page.
+Type in javascript, to see what shows up.
